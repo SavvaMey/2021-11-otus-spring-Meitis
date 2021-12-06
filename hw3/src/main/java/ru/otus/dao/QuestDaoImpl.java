@@ -1,7 +1,6 @@
 package ru.otus.dao;
 
 import au.com.bytecode.opencsv.CSVReader;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import ru.otus.domain.Question;
 import ru.otus.exception.FromCSVException;
@@ -15,13 +14,14 @@ import java.util.List;
 @Repository
 public class QuestDaoImpl implements QuestDao {
 
-    private final String csvName;
     public List<Question> listQuestions = new ArrayList<>();
     private final ParserFromCSVToQuestion parserFromCSVToQuestion;
+    private final BeanForInputStream beanForInputStream;
 
-    public QuestDaoImpl(@Value("${filename}") String csvName, ParserFromCSVToQuestion parserFromCSVToQuestion) {
-        this.csvName = csvName;
+
+    public QuestDaoImpl(ParserFromCSVToQuestion parserFromCSVToQuestion, BeanForInputStream beanForInputStream) {
         this.parserFromCSVToQuestion = parserFromCSVToQuestion;
+        this.beanForInputStream = beanForInputStream;
     }
 
 
@@ -42,8 +42,9 @@ public class QuestDaoImpl implements QuestDao {
     }
 
     private void loadQuestions() throws IOException {
-        InputStream in = QuestDaoImpl.class.getResourceAsStream(csvName);
-        try (CSVReader reader = new CSVReader(new InputStreamReader(in))) {
+
+        try (CSVReader reader = new CSVReader(new InputStreamReader(
+                beanForInputStream.getResource().getInputStream()))) {
             String[] lineInArray;
             while ((lineInArray = reader.readNext()) != null) {
                 Question question = parserFromCSVToQuestion.parse(lineInArray);
