@@ -1,0 +1,11 @@
+application:
+    locale: en_UK
+
+filename: /csv/questions-RU.csv
+
+count-answers: 3
+
+spring:
+    messages:
+        basename: i118n/messages
+
