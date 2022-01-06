@@ -1,0 +1,13 @@
+application:
+    locale: ru_RU
+
+filename: /csv/questions-RU.csv
+
+count-answers: 3
+
+spring:
+    messages:
+        basename: i118n/messages
+    main:
+        allow-circular-references: true
+
