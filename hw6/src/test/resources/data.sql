@@ -1,0 +1,17 @@
+INSERT INTO authors(firstName, lastName) VALUES ('Gayle', 'Laakmann McDowell');
+INSERT INTO authors(firstName, lastName) VALUES ('Ivan', 'Ivanov');
+INSERT INTO authors(firstName, lastName) VALUES ('Alex', 'Kodov');
+INSERT INTO authors(firstName, lastName) VALUES ('Wol', 'WOW');
+INSERT INTO genres (nameGenre) VALUES ('Textbook');
+INSERT INTO genres (nameGenre) VALUES ('Detective');
+INSERT INTO genres (nameGenre) VALUES ('Horror');
+INSERT INTO genres (nameGenre) VALUES ('SCI_FI');
+INSERT INTO books(title, author_id, genre_id) VALUES ('Cracking the Coding Interview', 1, 1);
+INSERT INTO books(title, author_id, genre_id) VALUES ('who kill bob', 2, 2);
+INSERT INTO books(title, author_id, genre_id) VALUES ('bad dreams', 3, 3);
+INSERT INTO comments(text, book_id) VALUES ('good book', 1);
+INSERT INTO comments(text, book_id) VALUES ('wow', 1);
+INSERT INTO comments(text, book_id) VALUES ('bad', 2);
+INSERT INTO comments(text, book_id) VALUES ('worst', 2);
+INSERT INTO comments(text, book_id) VALUES ('hello', 3);
+INSERT INTO comments(text, book_id) VALUES ('nice', 3);
