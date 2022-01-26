@@ -2,7 +2,9 @@ package ru.otus.dao;
 
 import lombok.AllArgsConstructor;
 import org.hibernate.Hibernate;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import ru.otus.dao.intrf.CommentDao;
 import ru.otus.domain.Author;
 import ru.otus.domain.Comment;
@@ -12,7 +14,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+@Service
 @AllArgsConstructor
 public class CommentDaoImpl implements CommentDao {
 
@@ -20,8 +22,9 @@ public class CommentDaoImpl implements CommentDao {
     private final EntityManager em;
 
     @Override
-    public List<Comment> getAllComments() {
-        var query = em.createQuery("select c from Comment c join fetch  c.book t", Comment.class);
+    public List<Comment> getCommentsByBookId(long bookId) {
+        var query = em.createQuery("select c from Comment c join fetch  c.book t where c.book.id = :bookId", Comment.class);
+        query.setParameter("bookId", bookId);
         return query.getResultList();
     }
 
@@ -45,7 +48,7 @@ public class CommentDaoImpl implements CommentDao {
     }
 
     @Override
-    public Comment insertComment(Comment comment) {
+    public Comment saveComment(Comment comment) {
         if (comment.getId() == null) {
             em.persist(comment);
             return comment;

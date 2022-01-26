@@ -9,5 +9,5 @@ public interface BookService {
     Book getBookById(long id);
     long deleteBookById(long id);
     long updateBook(long id, String title, long authorId, long genreId);
-    Book insertBook(String title, long authorId, long genreId);
+    Book saveBook(String title, long authorId, long genreId);
 }

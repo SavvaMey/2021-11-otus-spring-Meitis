@@ -125,9 +125,9 @@ class BookServiceImplTest {
     void insertBook() {
         Book bookOut = new Book(1L, "hello", 1L, 1L);
         Book bookIn = new Book(null, "hello", 1L, 1L);
-        when(bookDaoImpl.insertBook(bookIn))
+        when(bookDaoImpl.saveBook(bookIn))
                 .thenReturn(bookOut);
-        assertThat(bookServiceImpl.insertBook("hello", 1L, 1L)).isEqualTo(bookOut);
-        verify(bookDaoImpl, times(1)).insertBook(bookIn);
+        assertThat(bookServiceImpl.saveBook("hello", 1L, 1L)).isEqualTo(bookOut);
+        verify(bookDaoImpl, times(1)).saveBook(bookIn);
     }
 }

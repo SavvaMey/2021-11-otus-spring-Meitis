@@ -19,11 +19,6 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "books")
-@NamedEntityGraph(name = "bookGraph",
-        attributeNodes = {@NamedAttributeNode("author"),
-                @NamedAttributeNode("genre"),
-        }
-)
 public class Book {
 
     @Id
@@ -34,12 +29,12 @@ public class Book {
     @Column(name = "title")
     private String title;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "author_id")
     @ToString.Exclude
     private Author author;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "genre_id")
     @ToString.Exclude
     private Genre genre;

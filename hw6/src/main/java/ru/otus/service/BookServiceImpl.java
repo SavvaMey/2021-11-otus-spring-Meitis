@@ -17,13 +17,11 @@ public class BookServiceImpl implements BookService {
     private final BookDao bookDaoImpl;
 
     @Override
-    @Transactional(readOnly = true)
     public List<Book> getAllBooks() {
         return bookDaoImpl.getAllBooks();
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Book getBookById(long id) {
        Book book;
        try {
@@ -62,10 +60,10 @@ public class BookServiceImpl implements BookService {
 
     @Override
     @Transactional
-    public Book insertBook(String title, long authorId, long genreId) {
+    public Book saveBook(String title, long authorId, long genreId) {
         Book book = new Book(title, authorId, genreId);
         try {
-            book =  bookDaoImpl.insertBook(book);
+            book =  bookDaoImpl.saveBook(book);
         } catch (DataAccessException e) {
             throw new ObjectNotFound("неверные ссылки на автора и жанр");
         }

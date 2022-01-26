@@ -1,7 +1,9 @@
 package ru.otus.dao;
 
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import ru.otus.dao.intrf.GenreDao;
 import ru.otus.domain.Genre;
 
@@ -9,7 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@Repository
+@Service
 @AllArgsConstructor
 public class GenreDaoImpl implements GenreDao {
 
@@ -40,7 +42,7 @@ public class GenreDaoImpl implements GenreDao {
     }
 
     @Override
-    public Genre insertGenre(Genre genre) {
+    public Genre saveGenre(Genre genre) {
         if (genre.getId() == null) {
             em.persist(genre);
             return genre;

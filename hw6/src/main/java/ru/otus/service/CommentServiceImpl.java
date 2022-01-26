@@ -18,13 +18,11 @@ public class CommentServiceImpl implements CommentService {
     private final CommentDao commentDaoImpl;
    
     @Override
-    @Transactional(readOnly = true)
-    public List<Comment> getAllComments() {
-        return commentDaoImpl.getAllComments();
+    public List<Comment> getCommentsByBookId(long bookId) {
+        return commentDaoImpl.getCommentsByBookId(bookId);
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Comment getCommentById(long id) {
             Comment comment = commentDaoImpl.getCommentById(id);
             if (comment == null) {
@@ -49,9 +47,9 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     @Transactional
-    public Comment insertComment(String commentName, long idBook) {
+    public Comment saveComment(String commentName, long idBook) {
         Book book = new Book(idBook);
         var comment = new Comment(commentName, book);
-        return commentDaoImpl.insertComment(comment);
+        return commentDaoImpl.saveComment(comment);
     }
 }

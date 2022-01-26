@@ -5,7 +5,7 @@ import ru.otus.domain.Comment;
 import java.util.List;
 
 public interface CommentService {
-    List<Comment> getAllComments();
+    List<Comment> getCommentsByBookId(long bookId);
 
     Comment getCommentById(long id);
 
@@ -13,5 +13,5 @@ public interface CommentService {
 
     long updateComment(long id, String commentName, long idBook);
 
-    Comment insertComment(String commentName, long idBook);
+    Comment saveComment(String commentName, long idBook);
 }

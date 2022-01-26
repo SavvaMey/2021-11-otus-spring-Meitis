@@ -36,6 +36,6 @@ public class ShellGenreController {
 
     @ShellMethod(value = "Insert Genre", key = "insertG")
     public Genre insertGenre(@ShellOption String genreName) {
-        return genreServiceImpl.insertGenre(genreName);
+        return genreServiceImpl.saveGenre(genreName);
     }
 }

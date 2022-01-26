@@ -16,9 +16,9 @@ import java.util.List;
 public class ShellCommentController {
     private final CommentService commentServiceImpl;
 
-    @ShellMethod(value = "Get all Comments", key = "comments")
-    public List<Comment> getAllComments() {
-        return commentServiceImpl.getAllComments();
+    @ShellMethod(value = "Get Comments By BookId", key = "comments")
+    public List<Comment> getCommentsByBookId(@ShellOption long bookId) {
+        return commentServiceImpl.getCommentsByBookId(bookId);
     }
 
     @ShellMethod(value = "Get Comment by Id", key = "comment")
@@ -40,6 +40,6 @@ public class ShellCommentController {
 
     @ShellMethod(value = "Insert Comment", key = "insertC")
     public Comment insertComment(@ShellOption String commentName, @ShellOption long idBook) {
-        return commentServiceImpl.insertComment(commentName, idBook);
+        return commentServiceImpl.saveComment(commentName, idBook);
     }
 }

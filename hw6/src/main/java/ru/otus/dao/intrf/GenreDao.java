@@ -10,6 +10,6 @@ public interface GenreDao {
     Genre getGenreById(long id);
     long deleteGenreById(long id);
     long updateGenre(Genre genre);
-    Genre insertGenre(Genre genre);
+    Genre saveGenre(Genre genre);
 
 }

@@ -37,6 +37,6 @@ public class ShellAuthorController {
 
     @ShellMethod(value = "Insert Author", key = "insertA")
     public Author insertAuthor(@ShellOption String firstName, @ShellOption String lastName) {
-        return authorServiceImpl.insertAuthor(firstName, lastName);
+        return authorServiceImpl.saveAuthor(firstName, lastName);
     }
 }

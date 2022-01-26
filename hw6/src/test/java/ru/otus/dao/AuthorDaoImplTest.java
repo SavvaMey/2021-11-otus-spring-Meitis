@@ -54,7 +54,7 @@ class AuthorDaoImplTest {
     @Test
     void insertAuthor() {
         var authorNew =  new Author( "new", "Author");
-        authorDao.insertAuthor(authorNew);
+        authorDao.saveAuthor(authorNew);
         var author = em.find(Author.class, 5L);
         assertThat(author).usingRecursiveComparison().ignoringExpectedNullFields().isEqualTo(authorNew);
     }

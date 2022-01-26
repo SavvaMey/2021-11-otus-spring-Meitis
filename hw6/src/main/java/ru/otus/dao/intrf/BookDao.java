@@ -9,5 +9,5 @@ public interface BookDao {
     Book getBookById(long id);
     long deleteBookById(long id);
     long updateBook(Book book);
-    Book insertBook(Book book);
+    Book saveBook(Book book);
 }

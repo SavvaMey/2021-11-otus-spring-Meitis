@@ -57,7 +57,7 @@ public class GenreDaoImplTest {
     @Test
     void insertGenre() {
         var genreNew =  new Genre( "genre");
-        genreDao.insertGenre(genreNew);
+        genreDao.saveGenre(genreNew);
         var genre = em.find(Genre.class, 5L);
         assertThat(genre).usingRecursiveComparison().ignoringExpectedNullFields().isEqualTo(genreNew);
     }

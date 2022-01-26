@@ -45,7 +45,7 @@ public class ShellBookController {
     @ShellMethod(value = "insert book", key = "insert")
     public Book insertBook(@ShellOption long authorId,
                                @ShellOption long genreId, @ShellOption  String title) {
-        return bookServiceImpl.insertBook(title, authorId, genreId);
+        return bookServiceImpl.saveBook(title, authorId, genreId);
     }
 
 }

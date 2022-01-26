@@ -9,5 +9,5 @@ public interface GenreService {
     Genre getGenreById(long id);
     long deleteGenreById(long id);
     long updateGenre(long id, String genreName);
-    Genre insertGenre(String genreName);
+    Genre saveGenre(String genreName);
 }

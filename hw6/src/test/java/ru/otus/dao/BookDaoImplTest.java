@@ -66,7 +66,7 @@ public class BookDaoImplTest {
     @Test
     void insertBook() {
         var bookNew =  new Book("Example", 1, 1);
-        bookDao.insertBook(bookNew);
+        bookDao.saveBook(bookNew);
         var Book = em.find(Book.class, 4L);
         assertThat(Book)
                 .usingRecursiveComparison()

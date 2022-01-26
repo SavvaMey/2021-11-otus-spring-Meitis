@@ -41,8 +41,8 @@ public class GenreServiceImpl implements GenreService {
 
     @Override
     @Transactional
-    public Genre insertGenre(String genreName) {
+    public Genre saveGenre(String genreName) {
         var genre = new Genre(genreName);
-        return genreDaoImpl.insertGenre(genre);
+        return genreDaoImpl.saveGenre(genre);
     }
 }

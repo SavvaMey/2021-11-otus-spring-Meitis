@@ -15,13 +15,11 @@ public class AuthorServiceImpl implements AuthorService {
     private final AuthorDao authorDaoImpl;
 
     @Override
-    @Transactional(readOnly = true)
     public List<Author> getAllAuthors() {
         return authorDaoImpl.getAllAuthors();
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Author getAuthorById(long id) {
         return authorDaoImpl.getAuthorById(id);
     }
@@ -41,8 +39,8 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     @Transactional
-    public Author insertAuthor(String firstName, String lastName) {
+    public Author saveAuthor(String firstName, String lastName) {
         var author = new Author(firstName, lastName);
-        return authorDaoImpl.insertAuthor(author);
+        return authorDaoImpl.saveAuthor(author);
     }
 }

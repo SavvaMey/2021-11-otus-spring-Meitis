@@ -25,10 +25,10 @@ public class CommentDaoImplTest {
     private TestEntityManager em;
 
     @Test
-    void getAllCommentsThen4() {
-        List<Comment> comments = commentDao.getAllComments();
+    void getAllCommentsByBookIdThen4() {
+        List<Comment> comments = commentDao.getCommentsByBookId(1L);
         assertThat(comments)
-                .hasSize(6);
+                .hasSize(2);
         assertThat(comments)
                 .map(Comment::getBook)
                 .isNotNull();
@@ -47,10 +47,10 @@ public class CommentDaoImplTest {
 
     @Test
     void deleteCommentById() {
-        assertThat(commentDao.deleteCommentById(4L))
-                .isEqualTo(4);
-        assertThat(commentDao.getAllComments())
-                .hasSize(5);
+        assertThat(commentDao.deleteCommentById(1L))
+                .isEqualTo(1L);
+        assertThat(commentDao.getCommentsByBookId(1L))
+                .hasSize(1);
     }
 
     @Test
@@ -67,7 +67,7 @@ public class CommentDaoImplTest {
     void insertComment() {
         var book = em.find(Book.class, 1L);
         var commentNew =  new Comment( "Comment", book);
-        commentDao.insertComment(commentNew);
+        commentDao.saveComment(commentNew);
         var comment = em.find(Comment.class, 7L);
         assertThat(comment)
                 .usingRecursiveComparison()

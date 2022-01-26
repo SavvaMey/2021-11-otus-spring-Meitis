@@ -9,5 +9,5 @@ public interface AuthorDao {
     List<Author> getAllAuthors();
     long deleteAuthorById(long id);
     long updateAuthor(Author author);
-    Author insertAuthor(Author author);
+    Author saveAuthor(Author author);
 }
