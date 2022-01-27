@@ -13,7 +13,7 @@ public interface AuthorService {
 
     void deleteAuthorById(long id);
 
-    long updateAuthor(long id, String firstName, String lastName);
+//    long updateAuthor(long id, String firstName, String lastName);
 
-    Author insertAuthor(String firstName, String lastName);
+    Author saveOrUpdateAuthor(long id, String firstName, String lastName);
 }

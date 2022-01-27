@@ -7,16 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import ru.otus.hw7.domain.Comment;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface CommentDao extends JpaRepository<Comment, Long> {
 
-    @Modifying(clearAutomatically = true)
-    @Query("update Comment c set c.text = :text where c.id = :id")
-    int updateCommentById( @Param("text") String text,
-                         @Param("id") Long id);
+    Optional<Comment> findById(Long id);
 
-    @EntityGraph("bookInfo")
-    Optional<Comment> findById(Long aLong);
+    List<Comment> findAllByBookId(long bookId);
 
 }

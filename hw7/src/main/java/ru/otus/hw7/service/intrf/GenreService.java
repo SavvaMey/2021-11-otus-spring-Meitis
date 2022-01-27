@@ -11,7 +11,7 @@ public interface GenreService {
 
     void deleteGenreById(long id);
 
-    long updateGenre(long id, String titleName);
+//    long updateGenre(long id, String titleName);
 
-    Genre insertGenre(String genreName);
+    Genre saveOrUpdateGenre(long id, String genreName);
 }

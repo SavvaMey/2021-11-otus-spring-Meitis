@@ -12,6 +12,7 @@ import java.util.Optional;
 
 public interface BookDao extends JpaRepository<Book, Long> {
 
+
     @EntityGraph("bookGraph")
     List<Book> findAll();
 

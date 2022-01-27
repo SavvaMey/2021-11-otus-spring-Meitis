@@ -32,13 +32,13 @@ public class ShellAuthorController {
     }
 
     @ShellMethod(value = "Update Author", key = "updateA")
-    public long updateAuthorById(@ShellOption long id, @ShellOption String firstName,
+    public Author updateAuthorById(@ShellOption long id, @ShellOption String firstName,
                                  @ShellOption String lastName) {
-        return authorServiceImpl.updateAuthor(id, firstName, lastName);
+        return authorServiceImpl.saveOrUpdateAuthor(id, firstName, lastName);
     }
 
-    @ShellMethod(value = "Insert Author", key = "insertA")
-    public Author insertAuthor(@ShellOption String firstName, @ShellOption String lastName) {
-        return authorServiceImpl.insertAuthor(firstName, lastName);
+    @ShellMethod(value = "save Author", key = "saveA")
+    public Author saveAuthor(@ShellOption String firstName, @ShellOption String lastName) {
+        return authorServiceImpl.saveOrUpdateAuthor(0, firstName, lastName);
     }
 }

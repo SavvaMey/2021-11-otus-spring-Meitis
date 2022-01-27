@@ -31,12 +31,12 @@ public class ShellGenreController {
     }
 
     @ShellMethod(value = "Update Genre", key = "updateG")
-    public long updateGenreById(@ShellOption long id, @ShellOption String title) {
-        return genreServiceImpl.updateGenre(id, title);
+    public Genre updateGenreById(@ShellOption long id, @ShellOption String title) {
+        return genreServiceImpl.saveOrUpdateGenre(id, title);
     }
 
-    @ShellMethod(value = "Insert Genre", key = "insertG")
-    public Genre insertGenre(@ShellOption String titleGenre) {
-        return genreServiceImpl.insertGenre(titleGenre);
+    @ShellMethod(value = "save Genre", key = "saveG")
+    public Genre saveGenre(@ShellOption String titleGenre) {
+        return genreServiceImpl.saveOrUpdateGenre(0, titleGenre);
     }
 }

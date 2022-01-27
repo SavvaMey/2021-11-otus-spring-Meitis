@@ -8,14 +8,9 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode(exclude = "book")
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "comments")
-@NamedEntityGraph(name = "bookInfo",
-        attributeNodes = {@NamedAttributeNode("book")
-        }
-)
 public class Comment {
 
     @Id
@@ -26,9 +21,8 @@ public class Comment {
     @Column(name = "text")
     private String text;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "book_id")
-    @ToString.Exclude
     private Book book;
 
     public Comment(String text, Book book) {

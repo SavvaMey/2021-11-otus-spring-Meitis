@@ -12,9 +12,7 @@ public interface BookService {
 
     void deleteBookById(long id);
 
-    @Transactional
     Book updateBook(long id, String title, Long authorId, Long genreId);
 
-    @Transactional
-    Book insertBook(String title, Long authorId, Long genreId);
+    Book saveBook(String title, Long authorId, Long genreId);
 }

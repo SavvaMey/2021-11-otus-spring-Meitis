@@ -23,15 +23,6 @@ class CommentDaoTest {
 
 
     @Test
-    void updateCommentById() {
-        var comment = new Comment(1L, "New");
-        int id = commentDao.updateCommentById("New", 1L);
-        var commentNew = em.find(Comment.class, 1L);
-        assertThat(id).isEqualTo(1L);
-        assertThat(commentNew).isEqualTo(comment);
-    }
-
-    @Test
     void findById() {
         var comment = em.find(Comment.class, 1L);
         var comment1 = commentDao.findById(1L);

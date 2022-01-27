@@ -20,13 +20,13 @@ public class CommentServiceImpl implements CommentService {
     private final CommentDao commentDao;
     private final BookDao bookDao;
 
-    @Transactional(readOnly = true)
+    
     @Override
-    public List<Comment> getAllComments() {
-        return commentDao.findAll();
+    public List<Comment> getCommentsByBookId(long bookId) {
+        return commentDao.findAllByBookId(bookId);
     }
 
-    @Transactional(readOnly = true)
+  
     @Override
     public Comment getCommentById(long id) {
         Optional<Comment> comment = commentDao.findById(id);
@@ -45,15 +45,9 @@ public class CommentServiceImpl implements CommentService {
 
     @Transactional
     @Override
-    public long updateComment(long id, String text) {
-        return commentDao.updateCommentById(text, id);
-    }
-
-    @Transactional
-    @Override
-    public Comment insertComment(String titleName, long idBook) {
+    public Comment saveOrUpdateComment(long id, String titleName, long idBook) {
         Book book = bookDao.getById(idBook);
-        var comment = new Comment(titleName, book);
+        var comment = new Comment(id, titleName, book);
         return commentDao.save(comment);
     }
 }

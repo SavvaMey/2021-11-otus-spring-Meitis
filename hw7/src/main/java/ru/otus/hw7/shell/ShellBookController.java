@@ -44,10 +44,10 @@ public class ShellBookController {
         return bookServiceImpl.updateBook(id, title, authorId, genreId);
     }
 
-    @ShellMethod(value = "insert book", key = "insert")
-    public Book insertBook(@ShellOption long authorId,
+    @ShellMethod(value = "save book", key = "save")
+    public Book saveBook(@ShellOption long authorId,
                            @ShellOption long genreId, @ShellOption  String title) {
-        return bookServiceImpl.insertBook(title, authorId, genreId);
+        return bookServiceImpl.saveBook(title, authorId, genreId);
     }
 
 }

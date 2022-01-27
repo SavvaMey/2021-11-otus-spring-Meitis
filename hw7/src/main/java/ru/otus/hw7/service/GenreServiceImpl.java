@@ -18,13 +18,13 @@ import java.util.Optional;
 public class GenreServiceImpl implements GenreService {
     private final GenreDao genreDao;
 
-    @Transactional(readOnly = true)
+   
     @Override
     public List<Genre> getAllGenres() {
         return genreDao.findAll();
     }
 
-    @Transactional(readOnly = true)
+   
     @Override
     public Genre getGenreById(long id) {
         Optional<Genre> genre = genreDao.findById(id);
@@ -41,16 +41,11 @@ public class GenreServiceImpl implements GenreService {
         }
     }
 
-    @Transactional
-    @Override
-    public long updateGenre(long id, String title) {
-        return genreDao.updateGenreById(title, id);
-    }
 
     @Transactional
     @Override
-    public Genre insertGenre(String titleName) {
-        var genre = new Genre(titleName);
+    public Genre saveOrUpdateGenre(long id, String titleName) {
+        var genre = new Genre(id, titleName);
         return genreDao.save(genre);
     }
 }
