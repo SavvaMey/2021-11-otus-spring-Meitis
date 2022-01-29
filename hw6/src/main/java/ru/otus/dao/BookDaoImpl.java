@@ -27,18 +27,15 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public Book getBookById(long id) {
-        var query = em.createQuery("select b from Book b where b.id = :id", Book.class);
-        query.setParameter("id", id);
-        Book book = query.getSingleResult();
+        var book = em.find(Book.class, id);
         Hibernate.initialize(book.getCommentList());
         return book;
     }
 
     @Override
-    public long deleteBookById(long id) {
+    public void deleteBookById(long id) {
         var book = em.find(Book.class, id);
         em.remove(book);
-        return id;
     }
 
     @Override

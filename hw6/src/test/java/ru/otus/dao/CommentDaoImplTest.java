@@ -25,16 +25,6 @@ public class CommentDaoImplTest {
     private TestEntityManager em;
 
     @Test
-    void getAllCommentsByBookIdThen4() {
-        List<Comment> comments = commentDao.getCommentsByBookId(1L);
-        assertThat(comments)
-                .hasSize(2);
-        assertThat(comments)
-                .map(Comment::getBook)
-                .isNotNull();
-    }
-
-    @Test
     void getCommentByIdThenFirstComment() {
         var comment = em.find(Comment.class, 1L);
         Comment comment1 = commentDao
@@ -47,10 +37,9 @@ public class CommentDaoImplTest {
 
     @Test
     void deleteCommentById() {
-        assertThat(commentDao.deleteCommentById(1L))
-                .isEqualTo(1L);
-        assertThat(commentDao.getCommentsByBookId(1L))
-                .hasSize(1);
+        commentDao.deleteCommentById(1L);
+        assertThat(em.find(Comment.class, 1L))
+                .isNull();
     }
 
     @Test

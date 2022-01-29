@@ -21,12 +21,12 @@ public class CommentDaoImpl implements CommentDao {
     @PersistenceContext
     private final EntityManager em;
 
-    @Override
-    public List<Comment> getCommentsByBookId(long bookId) {
-        var query = em.createQuery("select c from Comment c join fetch  c.book t where c.book.id = :bookId", Comment.class);
-        query.setParameter("bookId", bookId);
-        return query.getResultList();
-    }
+//    @Override
+//    public List<Comment> getCommentsByBookId(long bookId) {
+//        var query = em.createQuery("select c from Comment c join fetch  c.book t where c.book.id = :bookId", Comment.class);
+//        query.setParameter("bookId", bookId);
+//        return query.getResultList();
+//    }
 
     @Override
     public Comment getCommentById(long id) {

@@ -41,7 +41,7 @@ public class GenreDaoImplTest {
 
     @Test
     void deleteGenreById() {
-        assertThat(genreDao.deleteGenreById(4L)).isEqualTo(4);
+        genreDao.deleteGenreById(4L);
         assertThat(genreDao.getAllGenres())
                 .hasSize(3);
     }

@@ -22,15 +22,13 @@ public class ShellCommentController {
     }
 
     @ShellMethod(value = "Get Comment by Id", key = "comment")
-    public void getCommentById(@ShellOption long id) {
-        Comment comment = commentServiceImpl.getCommentById(id);
-        System.out.println(comment);
-        System.out.println(comment.getBook());
+    public Comment getCommentById(@ShellOption long id) {
+        return commentServiceImpl.getCommentById(id);
     }
 
     @ShellMethod(value = "Delete Comment by id", key = "deleteC")
-    public long deleteCommentById(@ShellOption long id) {
-        return commentServiceImpl.deleteCommentById(id);
+    public void deleteCommentById(@ShellOption long id) {
+       commentServiceImpl.deleteCommentById(id);
     }
 
     @ShellMethod(value = "Update Comment", key = "updateC")

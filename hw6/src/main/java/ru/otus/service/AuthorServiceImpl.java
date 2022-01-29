@@ -26,8 +26,8 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     @Transactional
-    public long deleteAuthorById(long id) {
-        return authorDaoImpl.deleteAuthorById(id);
+    public void deleteAuthorById(long id) {
+       authorDaoImpl.deleteAuthorById(id);
     }
 
     @Override

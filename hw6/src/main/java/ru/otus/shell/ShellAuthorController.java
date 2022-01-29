@@ -25,8 +25,8 @@ public class ShellAuthorController {
     }
 
     @ShellMethod(value = "Delete Author by id", key = "deleteA")
-    public long deleteAuthorById(@ShellOption long id) {
-        return authorServiceImpl.deleteAuthorById(id);
+    public void deleteAuthorById(@ShellOption long id) {
+        authorServiceImpl.deleteAuthorById(id);
     }
 
     @ShellMethod(value = "Update Author", key = "updateA")

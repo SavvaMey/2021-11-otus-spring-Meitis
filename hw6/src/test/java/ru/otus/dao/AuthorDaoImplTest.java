@@ -38,7 +38,7 @@ class AuthorDaoImplTest {
 
     @Test
     void deleteAuthorById() {
-        assertThat(authorDao.deleteAuthorById(4L)).isEqualTo(4);
+        authorDao.deleteAuthorById(4L);
         assertThat(authorDao.getAllAuthors())
                 .hasSize(3);
     }

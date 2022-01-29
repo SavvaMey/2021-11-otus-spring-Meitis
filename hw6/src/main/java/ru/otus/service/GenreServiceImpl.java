@@ -28,8 +28,8 @@ public class GenreServiceImpl implements GenreService {
 
     @Override
     @Transactional
-    public long deleteGenreById(long id) {
-        return genreDaoImpl.deleteGenreById(id);
+    public void deleteGenreById(long id) {
+       genreDaoImpl.deleteGenreById(id);
     }
 
     @Override

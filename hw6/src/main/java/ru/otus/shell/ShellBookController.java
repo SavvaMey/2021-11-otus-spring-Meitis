@@ -32,8 +32,8 @@ public class ShellBookController {
     }
 
     @ShellMethod(value = "Delete book by id", key = "delete")
-    public long deleteBookById(@ShellOption long id) {
-        return bookServiceImpl.deleteBookById(id);
+    public void deleteBookById(@ShellOption long id) {
+        bookServiceImpl.deleteBookById(id);
     }
 
     @ShellMethod(value = "Update book", key = "update")

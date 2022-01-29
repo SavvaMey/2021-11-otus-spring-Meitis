@@ -7,7 +7,7 @@ import java.util.List;
 public interface AuthorService {
     List<Author> getAllAuthors();
     Author getAuthorById(long id);
-    long deleteAuthorById(long id);
+    void deleteAuthorById(long id);
     long updateAuthor(long id, String firstName, String lastName);
     Author saveAuthor(String firstName, String lastName);
 }

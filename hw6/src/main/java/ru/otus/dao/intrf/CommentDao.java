@@ -5,7 +5,7 @@ import ru.otus.domain.Comment;
 import java.util.List;
 
 public interface CommentDao {
-    List<Comment> getCommentsByBookId(long bookId);
+//    List<Comment> getCommentsByBookId(long bookId);
 
     Comment getCommentById(long id);
 

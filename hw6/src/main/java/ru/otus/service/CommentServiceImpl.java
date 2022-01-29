@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.shell.standard.ShellOption;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.otus.dao.intrf.BookDao;
 import ru.otus.dao.intrf.CommentDao;
 import ru.otus.domain.Book;
 import ru.otus.domain.Comment;
@@ -15,11 +16,14 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class CommentServiceImpl implements CommentService {
+    private final BookDao bookDao;
     private final CommentDao commentDaoImpl;
    
     @Override
+    @Transactional
     public List<Comment> getCommentsByBookId(long bookId) {
-        return commentDaoImpl.getCommentsByBookId(bookId);
+        var book = bookDao.getBookById(bookId);
+        return book.getCommentList();
     }
 
     @Override
@@ -33,8 +37,8 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     @Transactional
-    public long deleteCommentById(long id) {
-        return commentDaoImpl.deleteCommentById(id);
+    public void deleteCommentById(long id) {
+       commentDaoImpl.deleteCommentById(id);
     }
 
     @Override

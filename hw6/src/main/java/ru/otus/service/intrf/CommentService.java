@@ -9,7 +9,7 @@ public interface CommentService {
 
     Comment getCommentById(long id);
 
-    long deleteCommentById(long id);
+    void deleteCommentById(long id);
 
     long updateComment(long id, String commentName, long idBook);
 

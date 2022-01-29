@@ -22,6 +22,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    @Transactional
     public Book getBookById(long id) {
        Book book;
        try {
@@ -34,12 +35,8 @@ public class BookServiceImpl implements BookService {
 
     @Override
     @Transactional
-    public long deleteBookById(long id) {
-        long idBook =  bookDaoImpl.deleteBookById(id);
-        if (idBook == 0) {
-            throw new ObjectNotFound("книги с таким id нет");
-        }
-        return idBook;
+    public void deleteBookById(long id) {
+         bookDaoImpl.deleteBookById(id);
     }
 
     @Override

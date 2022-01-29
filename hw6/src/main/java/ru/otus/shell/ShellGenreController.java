@@ -25,8 +25,8 @@ public class ShellGenreController {
     }
 
     @ShellMethod(value = "Delete Genre by id", key = "deleteG")
-    public long deleteGenreById(@ShellOption long id) {
-        return genreServiceImpl.deleteGenreById(id);
+    public void deleteGenreById(@ShellOption long id) {
+       genreServiceImpl.deleteGenreById(id);
     }
 
     @ShellMethod(value = "Update Genre", key = "updateG")

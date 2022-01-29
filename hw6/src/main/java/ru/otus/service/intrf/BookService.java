@@ -7,7 +7,7 @@ import java.util.List;
 public interface BookService {
     List<Book> getAllBooks();
     Book getBookById(long id);
-    long deleteBookById(long id);
+    void deleteBookById(long id);
     long updateBook(long id, String title, long authorId, long genreId);
     Book saveBook(String title, long authorId, long genreId);
 }

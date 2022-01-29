@@ -46,8 +46,7 @@ public class BookDaoImplTest {
 
     @Test
     void deleteBookById() {
-        assertThat(bookDao.deleteBookById(3L))
-                .isEqualTo(3);
+        bookDao.deleteBookById(3L);
         assertThat(bookDao.getAllBooks())
                 .hasSize(2);
     }
