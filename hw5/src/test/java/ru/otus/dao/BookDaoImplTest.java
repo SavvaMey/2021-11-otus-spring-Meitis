@@ -31,7 +31,7 @@ class BookDaoImplTest {
             new Genre(3, "Horror"));
 
     @Autowired
-    BookDao bookDaoImpl;
+    private BookDao bookDaoImpl;
 
     @Test
     @DisplayName("возвращает все книги")
