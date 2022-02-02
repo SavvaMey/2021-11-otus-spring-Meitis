@@ -1,0 +1,17 @@
+spring:
+    data:
+        mongodb:
+            database: mydb
+            port: 27017
+            host: localhost
+    main:
+        allow-circular-references: true
+mongock:
+#  runner-type: "ApplicationRunner" # default
+    runner-type: "InitializingBean"
+    change-logs-scan-package:
+        - ru.otus.hw8.changelog
+    mongo-db:
+        write-concern:
+            journal: false
+        read-concern: local
